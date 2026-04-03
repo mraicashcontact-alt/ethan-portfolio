@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<!-- saved from url=(0103)https://agent-cdn.minimax.io/mcp/cdn_upload/328341489757884422/383010092630123/1775192439_1eda5d50.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan Caldwell | UI/UX Designer</title>
+    <meta name="description" content="Premium UI/UX Design for Startups &amp; Online Businesses. Transform your digital presence with clean, high-converting design.">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Ethan Caldwell _ UI_UX Designer_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3D2914;
+            --secondary: #5C4033;
+            --accent: #D4AF37;
+            --accent-dark: #B8860B;
+            --bg-dark: #0A0A0A;
+            --bg-card: #121212;
+            --text: #F5F5F5;
+            --text-muted: #E0E0E0;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor.hover {
+            transform: scale(2);
+        }
+        
+        /* Grain Overlay */
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(92, 64, 51, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(2%, 2%) rotate(1deg); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.3s;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.5s;
+        }
+        
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.7s;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.9s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            text-align: center;
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Why Section */
+        .why {
+            background: var(--bg-card);
+        }
+        
+        .why-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .why-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .why-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .why-item p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+        
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin: 1rem 0 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step p {
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            position: relative;
+        }
+        
+        .testimonial-card blockquote {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--bg-dark);
+        }
+        
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--text);
+        }
+        
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: var(--bg-card);
+        }
+        
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            border-color: var(--accent);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.open {
+            padding: 1rem 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+        
+        .faq-answer p {
+            color: var(--text-muted);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(212, 175, 55, 0.1) 100%);
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+        }
+        
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding-top: 6rem;
+            }
+            
+            section {
+                padding: 4rem 5%;
+            }
+        }
+    </style>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+    <div class="cursor" id="cursor" style="left: 442px; top: 160px;"></div>
+    <div class="grain"></div>
+    
+    <nav>
+        <div class="logo">Ethan<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="https://agent-cdn.minimax.io/mcp/cdn_upload/328341489757884422/383010092630123/1775192439_1eda5d50.html#about">About</a></li>
+            <li><a href="https://agent-cdn.minimax.io/mcp/cdn_upload/328341489757884422/383010092630123/1775192439_1eda5d50.html#services">Services</a></li>
+            <li><a href="https://agent-cdn.minimax.io/mcp/cdn_upload/328341489757884422/383010092630123/1775192439_1eda5d50.html#process">Process</a></li>
+            <li><a href="https://agent-cdn.minimax.io/mcp/cdn_upload/328341489757884422/383010092630123/1775192439_1eda5d50.html#testimonials">Testimonials</a></li>
+            <li><a href="https://agent-cdn.minimax.io/mcp/cdn_upload/328341489757884422/383010092630123/1775192439_1eda5d50.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="gradient-text">Ethan Caldwell</span></h1>
+            <p class="subtitle">UI/UX Designer crafting premium digital experiences</p>
+            <p class="tagline">Transforming visions into high-converting, beautiful interfaces</p>
+            <a href="https://agent-cdn.minimax.io/mcp/cdn_upload/328341489757884422/383010092630123/1775192439_1eda5d50.html#contact" class="cta-btn">Let's Create Together</a>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="about-content reveal">
+            <h2 class="section-title">About Me</h2>
+            <p>I'm a UI/UX designer passionate about creating intuitive, visually stunning digital experiences. I specialize in helping startups and online businesses elevate their brand through clean, high-end design that doesn't just look good—it converts. Every project is an opportunity to blend aesthetics with strategy, ensuring your digital presence stands out in a crowded market.</p>
+        </div>
+    </section>
+    
+    <section id="services">
+        <h2 class="section-title reveal">Services</h2>
+        <p class="section-subtitle reveal">What I offer to elevate your brand</p>
+        <div class="services-grid">
+            <div class="service-card glass-card reveal">
+                <div class="service-icon">🎨</div>
+                <h3>Website Design</h3>
+                <p>Custom, conversion-focused websites that capture your brand essence while driving results.</p>
+            </div>
+            <div class="service-card glass-card reveal">
+                <div class="service-icon">📱</div>
+                <h3>Mobile App UI</h3>
+                <p>Beautiful, intuitive mobile experiences that keep users engaged and coming back.</p>
+            </div>
+            <div class="service-card glass-card reveal">
+                <div class="service-icon">🚀</div>
+                <h3>Landing Page Optimization</h3>
+                <p>Data-driven optimizations to turn visitors into customers with proven UX principles.</p>
+            </div>
+            <div class="service-card glass-card reveal">
+                <div class="service-icon">✨</div>
+                <h3>Branding Systems</h3>
+                <p> cohesive visual identities that tell your story and build lasting brand recognition.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="why">
+        <h2 class="section-title reveal">Why Work With Me</h2>
+        <p class="section-subtitle reveal">What makes our collaboration different</p>
+        <div class="why-content">
+            <div class="why-item reveal">
+                <div class="why-icon">🎯</div>
+                <p><strong>Conversion-Focused:</strong> Every design decision is backed by UX research and conversion principles.</p>
+            </div>
+            <div class="why-item reveal">
+                <div class="why-icon">⚡</div>
+                <p><strong>Fast Turnaround:</strong> Efficient process delivering premium results without the wait.</p>
+            </div>
+            <div class="why-item reveal">
+                <div class="why-icon">💎</div>
+                <p><strong>Premium Quality:</strong> $1000+ level design work that elevates your brand perception.</p>
+            </div>
+            <div class="why-item reveal">
+                <div class="why-icon">🤝</div>
+                <p><strong>Collaborative:</strong> You're involved at every step to ensure the final result exceeds expectations.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="process">
+        <h2 class="section-title reveal">My Process</h2>
+        <p class="section-subtitle reveal">How we bring your vision to life</p>
+        <div class="process-steps">
+            <div class="process-step glass-card reveal">
+                <span class="step-number">01</span>
+                <h3>Discovery</h3>
+                <p>We dive deep into your business, goals, audience, and competitors to create a strategic foundation.</p>
+            </div>
+            <div class="process-step glass-card reveal">
+                <span class="step-number">02</span>
+                <h3>Design</h3>
+                <p>Crafting wireframes, prototypes, and high-fidelity designs that balance beauty with functionality.</p>
+            </div>
+            <div class="process-step glass-card reveal">
+                <span class="step-number">03</span>
+                <h3>Deliver</h3>
+                <p>Refining until perfect, then handing over all assets with guidance for a smooth launch.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials">
+        <h2 class="section-title reveal">Client Love</h2>
+        <p class="section-subtitle reveal">What my clients say</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card glass-card reveal">
+                <blockquote>"Working with Ethan completely transformed our website. Clean, fast, and high-converting design."</blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-info">
+                        <h4>Sarah Mitchell</h4>
+                        <span>SaaS Founder</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card glass-card reveal">
+                <blockquote>"Ethan understands both design and business. Highly recommended for anyone serious about their brand."</blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JC</div>
+                    <div class="author-info">
+                        <h4>James Carter</h4>
+                        <span>E-commerce Owner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq" id="faq">
+        <h2 class="section-title reveal">FAQ</h2>
+        <p class="section-subtitle reveal">Common questions answered</p>
+        <div class="faq-container">
+            <div class="faq-item reveal">
+                <button class="faq-question">How long does a typical project take?<span>+</span></button>
+                <div class="faq-answer">
+                    <p>Most website projects take 2-4 weeks depending on complexity. I'll provide a detailed timeline during our discovery call.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">Do you work with startups?<span>+</span></button>
+                <div class="faq-answer">
+                    <p>Absolutely! I love working with startups and understand the unique challenges of building a brand from scratch.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">What's included in the deliverables?<span>+</span></button>
+                <div class="faq-answer">
+                    <p>You receive all design files (Figma/Sketch), assets, and a comprehensive style guide. For websites, I also provide development specifications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section" id="contact">
+        <h2 class="reveal">Ready to <span class="gradient-text">Transform</span> Your Digital Presence?</h2>
+        <p class="reveal">Let's create something extraordinary together. Drop me a message and let's discuss your project.</p>
+        <a href="mailto:ethan.caldwell.design@gmail.com" class="cta-btn reveal">Contact Me</a>
+    </section>
+    
+    <footer>
+        <p>© 2026 Ethan Caldwell. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+        
+        // Cursor hover effect
+        document.querySelectorAll('a, button, .glass-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+        
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (elementTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                answer.classList.toggle('open');
+                btn.querySelector('span').textContent = answer.classList.contains('open') ? '−' : '+';
+            });
+        });
+        
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body></html>
